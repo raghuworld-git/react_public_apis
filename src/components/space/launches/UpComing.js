@@ -28,7 +28,7 @@ const UpComing = () => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a className="right floated">For more launches</a>
+        <a href='/' className="right floated">For more launches</a>
       </Card.Content>
     </Card>
   );

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, Segment, Statistic,Button } from "semantic-ui-react";
+import { Header, Segment, Statistic } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getCurrentLocationOfISS } from "../../../actions/spaceActions";
 
@@ -42,7 +42,7 @@ class ISSPosition extends Component {
           </Statistic>
         </Statistic.Group>
         <Header as="h4">ISS Current Location</Header>
-        <a className='ui button basic inverted mini'>
+        <a href='/' className='ui button basic inverted mini'>
           View in Maps
         </a>
       </Segment>
