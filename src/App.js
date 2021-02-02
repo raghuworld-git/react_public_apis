@@ -1,5 +1,4 @@
 import React from "react";
-import { Divider } from "semantic-ui-react";
 import Space from "./components/space/Space";
 import IISDetails from './components/space/iss/IISDetails';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
