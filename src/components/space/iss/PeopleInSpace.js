@@ -10,7 +10,7 @@ class PeopleInSpace extends Component {
 
   renderHTML() {
     let isLoading = false;
-    if (this.props.peopleInSpace) {
+    if (this.props.peopleInSpace.length <= 0) {
       isLoading = true;
     }
     return (
@@ -18,10 +18,11 @@ class PeopleInSpace extends Component {
         textAlign="center"
         placeholder
         className={isLoading === true ? "loading" : ""}
+        inverted
       >
-        <Statistic size="large">
+        <Statistic size="large" inverted>
           <Statistic.Value>
-            {isLoading ? 0 : this.props.peopleInSpace.number}
+            {isLoading ? 0 : this.props.peopleInSpace.length}
           </Statistic.Value>
           <Statistic.Label>
             Humans are currently in{" "}
@@ -34,7 +35,7 @@ class PeopleInSpace extends Component {
             </a>
           </Statistic.Label>
         </Statistic>
-        <Button secondary size="mini" basic>
+        <Button secondary size="mini" basic inverted>
           For more
         </Button>
       </Segment>

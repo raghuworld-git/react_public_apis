@@ -5,6 +5,6 @@ export const IISLocationAPI =  axios.create({
 });
 
 export const PeopleInSpaceAPI =  axios.create({
-  baseURL: "https://www.howmanypeopleareinspacerightnow.com",
+  baseURL: "http://api.open-notify.org",
 });
 

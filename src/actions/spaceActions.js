@@ -2,7 +2,7 @@ import { IISLocationAPI, PeopleInSpaceAPI } from "../apis/spaceApis";
 
 export const getCurrentPeopleInSpace = () => {
   return async (dispatch) => {
-    const res = await PeopleInSpaceAPI.get("/peopleinspace.json");
+    const res = await PeopleInSpaceAPI.get("/astros.json");
     dispatch({
       type: "PEOPLE_IN_SPACE",
       payload: res.data.people,
