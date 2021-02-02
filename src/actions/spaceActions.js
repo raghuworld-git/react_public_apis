@@ -13,10 +13,9 @@ export const getCurrentPeopleInSpace = () => {
 export const getCurrentLocationOfISS = () => {
   return async (dispatch) => {
     const res = await spaceApis.get("/iss-now.json");
-    console.log(res.data);
     dispatch({
       type: "ISS_LOCATION",
-      payload: res.data,
+      payload: [res.data],
     });
   };
 };

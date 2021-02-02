@@ -1,36 +1,39 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Grid } from "semantic-ui-react";
-import CountCards from "./common/Cards/CountCards";
-import SimpleCard from "./common/Cards/SimpleCard";
-
 import {
-  getCurrentPeopleInSpace,
-  getCurrentLocationOfISS,
-} from "../actions/spaceActions";
+  Card,
+  Grid,
+  Statistic,
+  Image,
+  Divider,
+  Header,
+  Search,
+  Button,
+  Segment,
+  Icon,
+} from "semantic-ui-react";
 
 class Landing extends Component {
-  componentDidMount() {
-    this.props.getCurrentPeopleInSpace();
-    this.props.getCurrentLocationOfISS();
-  }
   render() {
     return (
-      <div className="ui container" style={{ marginTop: "10px" }}>
-        <Grid columns={4} stackable>
+      <div className="ui container" style={{ marginTop: "50px" }}>
+        <Grid columns={3}>
           <Grid.Row>
             <Grid.Column>
-              <CountCards
-                countValue={this.props.peopleInSpaceCount}
-                countDescription="Total Humans currently in space"
-              />
-            </Grid.Column>
-            <Grid.Column>
-              <SimpleCard
-                isLoading={true}
-                mainContent={""}
-                description="International Space Station (IIS) current location"
-              />
+              <Segment>
+                <Grid columns={2} stackable textAlign="center">
+                  <Divider vertical />
+                  <Grid.Row verticalAlign="middle">
+                    <Grid.Column>
+                      <Statistic>
+                        <Statistic.Value>42</Statistic.Value>
+                      </Statistic>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Header as="h3">Humans currently in space</Header>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -39,14 +42,4 @@ class Landing extends Component {
   }
 }
 
-const mapStatesToProps = (state) => {
-  return {
-    peopleInSpace: state.peopleInSpace,
-    peopleInSpaceCount: state.peopleInSpace.length,
-    issLocation: state.issLocation,
-  };
-};
-export default connect(mapStatesToProps, {
-  getCurrentPeopleInSpace,
-  getCurrentLocationOfISS,
-})(Landing);
+export default Landing;

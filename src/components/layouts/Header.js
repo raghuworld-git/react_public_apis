@@ -1,31 +1,49 @@
-import React, { useState } from "react";
-import { Menu } from "semantic-ui-react";
+import React from "react";
+//import { Menu } from "semantic-ui-react";
 
 const Header = () => {
-  const [activeItem, setActiveItem] = useState("");
- 
-  const handleItemClick = (e, { name }) => setActiveItem(name);
+  // const [activeItem, setActiveItem] = useState("");
+
+  // const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <div>
-      <Menu inverted>
-        <Menu.Item header>Our Company</Menu.Item>
-        <Menu.Item
-          name="aboutUs"
-          active={activeItem === "aboutUs"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item
-          name="jobs"
-          active={activeItem === "jobs"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item
-          name="locations"
-          active={activeItem === "locations"}
-          onClick={handleItemClick}
-        />
-      </Menu>
+    <div className="ui fixed inverted menu">
+      <div className="ui container">
+        <a  className="header item">
+          Project Name
+        </a>
+        <a  className="item">
+          Home
+        </a>
+        <div className="ui simple dropdown item">
+          Dropdown <i className="dropdown icon"></i>
+          <div className="menu">
+            <a className="item" >
+              Link Item
+            </a>
+            <a className="item" >
+              Link Item
+            </a>
+            <div className="divider"></div>
+            <div className="header">Header Item</div>
+            <div className="item">
+              <i className="dropdown icon"></i>
+              Sub Menu
+              <div className="menu">
+                <a className="item" >
+                  Link Item
+                </a>
+                <a className="item" >
+                  Link Item
+                </a>
+              </div>
+            </div>
+            <a className="item" >
+              Link Item
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
