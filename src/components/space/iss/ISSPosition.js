@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Header, Segment, Statistic } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getCurrentLocationOfISS } from "../../../actions/spaceActions";
+import _ from "lodash";
 
 class ISSPosition extends Component {
   timertoFetchISS = null;
@@ -11,8 +12,8 @@ class ISSPosition extends Component {
     }, 5000);
   }
 
-  componentWillUnmount(){
-      clearInterval(this.timertoFetchISS);
+  componentWillUnmount() {
+    clearInterval(this.timertoFetchISS);
   }
 
   renderHTML() {
@@ -21,13 +22,17 @@ class ISSPosition extends Component {
       isLoading = true;
     }
     return (
-      <Segment className={isLoading ? "loading" : ""} textAlign="center" inverted>
+      <Segment
+        className={isLoading ? "loading" : ""}
+        textAlign="center"
+        inverted
+      >
         <Statistic.Group widths="two" size="tiny" inverted>
           <Statistic>
             <Statistic.Value>
               {isLoading
                 ? 0.0
-                : this.props.issCoordinates[0].iss_position.latitude}
+                : _.round(this.props.issCoordinates[0].latitude, 4)}
             </Statistic.Value>
             <Statistic.Label>latitude</Statistic.Label>
           </Statistic>
@@ -36,13 +41,13 @@ class ISSPosition extends Component {
             <Statistic.Value>
               {isLoading
                 ? 0.0
-                : this.props.issCoordinates[0].iss_position.longitude}
+                : _.round(this.props.issCoordinates[0].longitude, 4)}
             </Statistic.Value>
             <Statistic.Label>longitude</Statistic.Label>
           </Statistic>
         </Statistic.Group>
         <Header as="h4">ISS Current Location</Header>
-        <a href='/' className='ui button basic inverted mini'>
+        <a href="/" className="ui button basic inverted mini">
           View in Maps
         </a>
       </Segment>
